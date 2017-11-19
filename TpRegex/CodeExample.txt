@@ -1,0 +1,11 @@
+﻿AppDomain domain = AppDomain.CurrentDomain;
+    // Set a timeout interval of 2 seconds.
+domain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromMilliseconds(100));
+Object timeout = domain.GetData("REGEX_DEFAULT_MATCH_TIMEOUT");
+Console.WriteLine("Default regex match timeout: {0}", timeout == null ? "<null>" : timeout);
+
+
+
+<system.web>
+  <httpRuntime defaultRegexMatchTimeout="00:00:20" />
+</system.web>
